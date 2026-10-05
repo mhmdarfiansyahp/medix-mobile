@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
-import 'home_shell.dart';
 
 class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
@@ -21,10 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await AuthService.login(_usernameController.text.trim(), _passwordController.text);
       if (!mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const MainHomeScreen()),
-      );
+      Navigator.pushReplacementNamed(context, '/home');
     } catch (e) {
       if (!mounted) return;
       setState(() {

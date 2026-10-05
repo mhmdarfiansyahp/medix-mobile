@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../services/api_client.dart';
-import 'dashboard_tab.dart';
-import 'cashier_tab.dart';
-import 'inventory_tab.dart';
-import 'profile_tab.dart';
+import '../../../core/network/api_client.dart';
+import '../../dashboard/screens/dashboard_tab.dart';
+import '../../cashier/screens/cashier_tab.dart';
+import '../../inventory/screens/inventory_tab.dart';
+import '../../profile/screens/profile_tab.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});

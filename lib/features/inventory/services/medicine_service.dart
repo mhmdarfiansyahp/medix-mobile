@@ -1,4 +1,4 @@
-import 'api_client.dart';
+import '../../../core/network/api_client.dart';
 
 class MedicineService {
   static Future<List<dynamic>> getAll() async {

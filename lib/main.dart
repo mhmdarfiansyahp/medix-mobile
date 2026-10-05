@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
+import 'features/auth/screens/login_screen.dart';
+import 'features/home/screens/home_shell.dart';
 
 void main() {
   runApp(const MedixApp());
@@ -20,7 +21,11 @@ class MedixApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
-      home: const LoginScreen(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (_) => const LoginScreen(),
+        '/home': (_) => const MainHomeScreen(),
+      },
     );
   }
 }
