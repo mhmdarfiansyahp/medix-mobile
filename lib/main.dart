@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'features/auth/screens/login_screen.dart';
 import 'features/home/screens/home_shell.dart';
+import 'core/network/api_client.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
+  Storage.setTokenExpiredListener(() {
+    navigatorKey.currentState?.pushNamedAndRemoveUntil('/login', (route) => false);
+  });
   runApp(const MedixApp());
 }
 
@@ -13,6 +19,7 @@ class MedixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Medix Mobile',
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(

@@ -3,7 +3,7 @@ import '../../../core/network/api_client.dart';
 import '../../dashboard/screens/dashboard_tab.dart';
 import '../../cashier/screens/cashier_tab.dart';
 import '../../inventory/screens/inventory_tab.dart';
-import '../../profile/screens/profile_tab.dart';
+import '../../profile/screens/profile_screen.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
@@ -27,7 +27,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     const DashboardTab(),
     const CashierTab(),
     const InventoryTab(),
-    const ProfileTab(),
+    const ProfileScreen(),
   ];
 
   @override

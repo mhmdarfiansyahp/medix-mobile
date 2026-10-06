@@ -7,15 +7,21 @@ class Storage {
   static String? _token;
   static DateTime? _tokenExpiry;
   static Map<String, dynamic>? _user;
+  static VoidCallback? _onTokenExpired;
 
   static void setToken(String token, int expiresIn) {
     _token = token;
     _tokenExpiry = DateTime.now().add(Duration(seconds: expiresIn));
   }
 
+  static void setTokenExpiredListener(VoidCallback listener) {
+    _onTokenExpired = listener;
+  }
+
   static String? getToken() {
     if (_tokenExpiry != null && DateTime.now().isAfter(_tokenExpiry!)) {
       clear();
+      _onTokenExpired?.call();
       return null;
     }
     return _token;
